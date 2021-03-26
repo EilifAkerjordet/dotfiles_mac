@@ -53,6 +53,7 @@ luafile ~/.config/nvim/lua/plugins/telescope-config.lua
 
 " AUTOCOMPLETE
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+let g:completion_enable_snippet = 'UltiSnips'
 set shortmess+=c
 set completeopt=menuone,noinsert,noselect
 " Use <C-j> and <C-k> to navigate through popup menu
