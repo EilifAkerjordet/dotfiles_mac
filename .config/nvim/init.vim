@@ -33,6 +33,7 @@ call plug#begin('~/local/share/nvim/plugged')
  Plug 'nvim-lua/plenary.nvim'
  Plug 'nvim-telescope/telescope.nvim'
  Plug 'nvim-telescope/telescope-fzy-native.nvim'
+ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
  Plug 'airblade/vim-rooter'
  Plug 'vimwiki/vimwiki'
  Plug 'tpope/vim-fugitive'
@@ -50,6 +51,7 @@ call plug#end()
 luafile ~/.config/nvim/lua/plugins/lspsaga-config.lua
 luafile ~/.config/nvim/lua/plugins/lspinstall-config.lua
 luafile ~/.config/nvim/lua/plugins/telescope-config.lua
+luafile ~/.config/nvim/lua/plugins/treesitter-config.lua
 
 " AUTOCOMPLETE
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']

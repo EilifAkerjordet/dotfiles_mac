@@ -1,4 +1,17 @@
 -- Configure lua language server for neovim development
+
+-- Autoformat
+--  vim.api.nvim_command([[
+--   autocmd BufWritePre *.js :lua vim.lsp.buf.formatting_sync(nil, 100)
+--   autocmd BufWritePre *.jsx :lua vim.lsp.buf.formatting_sync(nil, 100)
+--   autocmd BufWritePre *.ts :lua vim.lsp.buf.formatting_sync(nil, 100)
+--   autocmd BufWritePre *.tsx :lua vim.lsp.buf.formatting_sync(nil, 100)
+--   autocmd BufWritePre *.lua :lua vim.lsp.buf.formatting_sync(nil, 100)
+-- ]])
+
+
+
+-- Enable lua for vim development
 local lua_settings = {
   Lua = {
     runtime = {
