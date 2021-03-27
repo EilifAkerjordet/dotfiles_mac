@@ -62,3 +62,11 @@ vim.g.firenvim_config = {
 		['.*facebook\\.com.*'] = { priority = 9, takeover = 'never' },
 	}
 }
+
+--- Vimtex
+vim.g.vimtex_view_method = 'zathura'
+vim.g.tex_flavor  = 'latex'
+vim.g.tex_conceal = ''
+vim.g.vimtex_fold_manual = 1
+vim.g.vimtex_latexmk_continuous = 1
+vim.g.vimtex_compiler_progname = 'nvr'
