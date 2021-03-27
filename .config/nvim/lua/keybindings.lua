@@ -28,6 +28,11 @@ vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-w>', ':wq<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-q>', ':q!<CR>', { noremap = true })
 
+--- VIMUX
+vim.api.nvim_set_keymap('n', '<Leader>vp', ':VimuxPromptCommand<CR>', {})
+vim.api.nvim_set_keymap('n', '<Leader>vl', ':VimuxRunLastCommand<CR>', {})
+vim.api.nvim_set_keymap('n', '<Leader>vi', ':VimuxInspectRunner<CR>', {})
+
 --- Git
 vim.api.nvim_set_keymap('n', '<Leader>gs', ':G<CR>', {})
 vim.api.nvim_set_keymap('n', '<Leader>gc', ':G commit<CR>', {})
