@@ -5,7 +5,6 @@ call plug#begin('~/local/share/nvim/plugged')
  Plug 'glepnir/lspsaga.nvim'
  Plug 'alampros/vim-styled-jsx'
  Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(1) } }
- Plug 'sheerun/vim-polyglot'
  Plug 'SirVer/ultisnips'
  Plug 'lervag/vimtex'
  Plug 'Konfekt/FastFold'
@@ -14,7 +13,6 @@ call plug#begin('~/local/share/nvim/plugged')
  Plug 'w0rp/ale'
  Plug 'hail2u/vim-css3-syntax'
  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
- Plug 'sbdchd/neoformat'
  Plug 'tpope/vim-sensible'
  Plug 'hzchirs/vim-material'
  Plug 'vim-airline/vim-airline'
@@ -22,20 +20,17 @@ call plug#begin('~/local/share/nvim/plugged')
  Plug 'tpope/vim-surround'
  Plug 'christoomey/vim-tmux-navigator'
  Plug 'benmills/vimux'
- Plug 'mlaursen/vim-react-snippets'
  Plug 'jalvesaq/Nvim-R', {'branch': 'stable'}
  Plug 'preservim/nerdcommenter'
  Plug 'norcalli/nvim-colorizer.lua'
  Plug 'jiangmiao/auto-pairs'
  Plug 'lgeorget/maude.vim'
- Plug 'ThePrimeagen/vim-be-good', { 'do': './install.sh' }
  Plug 'nvim-lua/popup.nvim'
  Plug 'nvim-lua/plenary.nvim'
  Plug 'nvim-telescope/telescope.nvim'
  Plug 'nvim-telescope/telescope-fzy-native.nvim'
  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
  Plug 'airblade/vim-rooter'
- Plug 'vimwiki/vimwiki'
  Plug 'tpope/vim-fugitive'
  Plug 'unblevable/quick-scope'
  Plug 'kevinhwang91/rnvimr', {'branch': 'main'}
@@ -48,25 +43,7 @@ call plug#begin('~/local/share/nvim/plugged')
  " NEEDS TO BE LAST TO LOAD "
 call plug#end()
 
-luafile ~/.config/nvim/lua/plugins/lspsaga-config.lua
-luafile ~/.config/nvim/lua/plugins/lspinstall-config.lua
-luafile ~/.config/nvim/lua/plugins/telescope-config.lua
-luafile ~/.config/nvim/lua/plugins/treesitter-config.lua
-
-" AUTOCOMPLETE
-let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-let g:completion_enable_snippet = 'UltiSnips'
-set shortmess+=c
-set completeopt=menuone,noinsert,noselect
-" Use <C-j> and <C-k> to navigate through popup menu
-inoremap <silent><expr> <C-j>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<C-j>" :
-      \ coc#refresh()
-inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-" AUTOCOMPLETE
-
+set termguicolors
 set number
 set relativenumber
 set expandtab
@@ -83,6 +60,24 @@ set signcolumn=no
 set splitbelow splitright
 set laststatus=0
 set noshowmode
+
+luafile ~/.config/nvim/lua/plugins/lspsaga-config.lua
+luafile ~/.config/nvim/lua/plugins/lspinstall-config.lua
+luafile ~/.config/nvim/lua/plugins/telescope-config.lua
+luafile ~/.config/nvim/lua/plugins/treesitter-config.lua
+luafile ~/.config/nvim/lua/plugins/colorizer-config.lua
+
+" AUTOCOMPLETE
+let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
+let g:completion_enable_snippet = 'UltiSnips'
+set shortmess+=c
+set completeopt=menuone,noinsert,noselect
+" Use <C-j> and <C-k> to navigate through popup menu
+inoremap <silent><expr> <C-j>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<C-j>" :
+      \ coc#refresh()
+inoremap <expr><C-k> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 let g:bufferline_echo = 0
 
@@ -162,53 +157,6 @@ nmap <Leader>k :RnvimrToggle<CR>
     omap S <Plug>Sneak_S
 " KEY MAPS END
 "
-
-"""""""""""""""""""FZF""""""""""""""""""""""""""""""""""
-" This is the default extra key bindings
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-" An action can be a reference to a function that processes selected lines
-function! s:build_quickfix_list(lines)
-  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
-  copen
-  cc
-endfunction
-
-let g:fzf_action = {
-  \ 'ctrl-q': function('s:build_quickfix_list'),
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-let g:fzf_layout = { 'window': { 'width': 0.6, 'height': 0.5 } }
-
-" Customize fzf colors to match your color scheme
-" - fzf#wrap translates this to a set of `--color` options
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
-
-" Enable per-command history
-" - History files will be stored in the specified directory
-" - When set, CTRL-N and CTRL-P will be bound to 'next-history' and
-"   'previous-history' instead of 'down' and 'up'.
-let g:fzf_history_dir = '~/.local/share/fzf-history'
-
-"""""""""""""""""""FZF""""""""""""""""""""""""""""""""""
 """""""""""""""""""EMMET"""""""""""""""""""""""""""""
 let g:user_emmet_leader_key='<C-c>'
 nmap <expr> <C-l> emmet#expandAbbrIntelligent("\<C-l>")
@@ -256,7 +204,6 @@ endif
 """""""""""""""""""NerdCommenter"""""""""""""""""""""""""""
 " Create default mappings
 let g:NERDCreateDefaultMappings = 0
-
 nmap <leader>cc <plug>NERDCommenterToggle
 vmap <leader>cc <plug>NERDCommenterToggle
 
@@ -296,12 +243,6 @@ let g:vimtex_latexmk_continuous = 1
 let g:vimtex_compiler_progname = 'nvr'
 " use SumatraPDF if you are on Windows
 """""""""""""""""""VIMTEX"""""""""""""""""""""""""""
-
-if exists('+termguicolors')
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
-endif
 
 "let g:material_terminal_italics = 1
 "let g:material_theme_style = 'darker'
