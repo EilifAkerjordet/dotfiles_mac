@@ -4,7 +4,8 @@ require('settings')
 require('colorscheme')
 require('keybindings')
 require('autocmd')
---- Plugins
+
+--- Plugin configs
 require('colorizer-config')
 require('lspinstall-config')
 require('lspsaga-config')
@@ -23,3 +24,5 @@ require('vimux-config')
 require('gitfugative-config')
 require('vimSneak-config')
 require('emmet-config')
+require('lspkind-config')
+require('peekup-config')

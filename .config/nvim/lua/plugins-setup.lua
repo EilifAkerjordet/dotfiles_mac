@@ -12,8 +12,10 @@ return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
   use 'neovim/nvim-lspconfig'
+  use 'dsznajder/vscode-es7-javascript-react-snippets'
   use 'nvim-lua/completion-nvim'
   use 'kabouzeid/nvim-lspinstall'
+  use 'onsails/lspkind-nvim'
   use 'glepnir/lspsaga.nvim'
   use 'alampros/vim-styled-jsx'
   use {
@@ -23,6 +25,9 @@ return require('packer').startup(function(use)
      end
     }
   use 'SirVer/ultisnips'
+  use 'gennaro-tedesco/nvim-peekup'
+  use 'hrsh7th/vim-vsnip-integ'
+  use 'hrsh7th/vim-vsnip'
   use 'lervag/vimtex'
   use 'Konfekt/FastFold'
   use 'matze/vim-tex-fold'
@@ -46,11 +51,11 @@ return require('packer').startup(function(use)
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-telescope/telescope-fzy-native.nvim'
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+	use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use 'airblade/vim-rooter'
   use 'tpope/vim-fugitive'
   use 'unblevable/quick-scope'
-	use 'kevinhwang91/rnvimr'
+  use 'kevinhwang91/rnvimr'
   use 'miyakogi/seiya.vim'
   use 'turbio/bracey.vim'
   use 'yuttie/comfortable-motion.vim'

@@ -1,5 +1,14 @@
 vim.g.completion_matching_strategy_list = { 'exact', 'substring', 'fuzzy' }
-vim.g.completion_enable_snippet = 'UltiSnips'
+-- vim.g.completion_sorting = "alphabet"
+vim.g.completion_enable_snippet = 'vim-vsnip'
+
+vim.g.completion_auto_change_source = 1
+vim.g.completion_chain_complete_list = {
+    {complete_items = {'lsp'}},
+    {complete_items = {'snippet'}},
+    {mode = '<c-p>'},
+    {mode= '<c-n>'}
+	}
 
 --- Map <C-j> and <C-k> to cycle through autocomplete options
 local function t(str)
@@ -16,13 +25,6 @@ vim.api.nvim_set_keymap('i', '<C-k>', 'v:lua.c_k()', {expr = true, noremap = tru
 
 --- Use <CR> for completion only when menu is available
 vim.g.completion_confirm_key = ""
--- function _G.cr()
---   -- return vim.fn.pumvisible() == 1 and t'\\<Plug>(completion_confirm_completion)' or t'\\<CR>'
---   if vim.fn.pumvisible() == 1 then
---     return t'<Plug>completion_confirm_completion'
---   else
---     return t'<CR>'
---   end
--- end
---
--- vim.api.nvim_set_keymap('i', '<CR>', 'v:lua.cr()', { expr = true })
+vim.cmd([[
+  inoremap <expr> <cr>    pumvisible() ? "\<Plug>(completion_confirm_completion)" : "\<cr>"
+]])
