@@ -50,7 +50,7 @@ return require('packer').startup(function(use)
   use 'airblade/vim-rooter'
   use 'tpope/vim-fugitive'
   use 'unblevable/quick-scope'
-  use {'kevinhwang91/rnvimr', branch = 'main'}
+	use 'kevinhwang91/rnvimr'
   use 'miyakogi/seiya.vim'
   use 'turbio/bracey.vim'
   use 'yuttie/comfortable-motion.vim'

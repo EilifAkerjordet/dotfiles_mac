@@ -10,16 +10,15 @@ vim.o.termguicolors = true
 vim.o.splitright = true -- Vertical splits will automatically be to the right
 vim.o.t_Co = "256" -- Support 256 colors
 vim.o.conceallevel = 0 -- So that I can see `` in markdown files
-vim.cmd('set tabstop=2')
-vim.cmd('set softtabstop=2')
-vim.cmd('set shiftwidth=2')
 vim.cmd('set nobackup')
 vim.cmd('set nowritebackup')
-vim.cmd('set laststatus=0')
 vim.cmd('set completeopt=menuone,noinsert,noselect')
+vim.o.tabstop = 2
+vim.o.softtabstop = 2
+vim.o.shiftwidth = 2
+vim.o.laststatus = 0
 vim.bo.expandtab = true -- Converts tabs to spaces
-vim.bo.smartindent = true -- Makes indenting smart
-vim.wo.number = true -- set numbered lines
+vim.wo.number = true
 vim.wo.relativenumber = true
 vim.wo.cursorline = true -- Enable highlighting of the current line
 vim.o.showmode = false -- We don't need to see things like -- INSERT -- anymore
