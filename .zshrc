@@ -39,7 +39,6 @@ alias cl="clear"
 alias s="sudo"
 alias r="ranger"
 alias labelimage="python3 ~/labelImg/labelImg.py"
-alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 source $ZSH/oh-my-zsh.sh
 
