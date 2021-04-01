@@ -1,5 +1,4 @@
 --- Keybindings
-vim.api.nvim_set_keymap('n', '<Leader>gs', ':G<CR>', {})
 vim.api.nvim_set_keymap('n', '<Leader>gc', ':G commit<CR>', {})
 vim.api.nvim_set_keymap('n', '<Leader>ga', ':G add .<CR>', {})
 vim.api.nvim_set_keymap('n', '<Leader>g;', ':G pull<CR>', {})

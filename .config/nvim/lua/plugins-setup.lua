@@ -11,6 +11,7 @@ end
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
+  -- Custom end
   use 'neovim/nvim-lspconfig'
   use 'dsznajder/vscode-es7-javascript-react-snippets'
   use 'nvim-lua/completion-nvim'
@@ -18,6 +19,7 @@ return require('packer').startup(function(use)
   use 'onsails/lspkind-nvim'
   use 'glepnir/lspsaga.nvim'
   use 'alampros/vim-styled-jsx'
+  use 'mhinz/vim-startify'
   use {
     'glacambre/firenvim',
      run = function()
@@ -50,6 +52,7 @@ return require('packer').startup(function(use)
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
   use 'nvim-telescope/telescope.nvim'
+  use 'nvim-telescope/telescope-github.nvim'
   use 'nvim-telescope/telescope-fzy-native.nvim'
 	use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
   use 'airblade/vim-rooter'

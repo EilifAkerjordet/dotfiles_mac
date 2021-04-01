@@ -5,6 +5,10 @@ vim.api.nvim_set_keymap("n", "<C-p>", "<cmd>lua require('telescope.builtin').fin
 vim.api.nvim_set_keymap("n", "<C-x>", "<cmd>lua require('telescope.builtin').live_grep()<CR>", opts)
 vim.api.nvim_set_keymap("n", "/", "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>", opts)
 
+vim.api.nvim_set_keymap("n", "<Leader>gs", "<cmd>lua require('telescope.builtin').git_status()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<Leader>gb", "<cmd>lua require('telescope.builtin').git_branches()<CR>", opts)
+-- vim.api.nvim_set_keymap("n", "<Leader>gc", "<cmd>lua require('telescope.builtin').git_commits()<CR>", opts)
+
 -- Global remapping
 ------------------------------
 require('telescope').setup{
