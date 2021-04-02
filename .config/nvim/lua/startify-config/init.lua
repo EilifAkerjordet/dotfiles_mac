@@ -23,7 +23,7 @@ vim.api.nvim_exec(
     true)
 
 vim.api.nvim_exec(
-    'let startify_bookmarks = [ { \'c\': \'~/dotfiles_mac/.config\' }, { \'a\': \'~/dotfiles_mac/.config/alacritty/alacritty.yml\' }, { \'y\': \'~/dotfiles_mac/.config/yabai/yabairc\' }, { \'s\': \'~/dotfiles_mac/.config/skhd/skhdrc\' }, { \'v\': \'~/dotfiles_mac/.config/nvim/init.lua\' }, { \'z\': \'~/.zshrc\' }, { \'t\': \'~/.tmux.conf\' } ]',
+    'let startify_bookmarks = [ { \'c\': \'~/.config\' }, { \'a\': \'~/.config/alacritty/alacritty.yml\' }, { \'y\': \'~/.config/yabai/yabairc\' }, { \'s\': \'~/.config/skhd/skhdrc\' }, { \'v\': \'~/.config/nvim/init.lua\' }, { \'z\': \'~/.zshrc\' }, { \'t\': \'~/.tmux.conf\' } ]',
     true)
 
 vim.cmd([[

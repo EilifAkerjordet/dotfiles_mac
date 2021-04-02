@@ -27,3 +27,7 @@ require('emmet-config')
 require('lspkind-config')
 require('peekup-config')
 require('startify-config')
+
+local scan = require'plenary.scandir'
+local res = scan.scan_dir('.', { hidden = true, depth = 1 })
+print(vim.inspect(res))

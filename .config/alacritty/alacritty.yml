@@ -360,7 +360,7 @@ shell:
   args:
     - -l
     - -c
-    - "tmux ls && read tmux_session && tmux attach -t ${tmux_session:-default} || tmux new -s ${tmux_session:-default}"
+    - "tmux ls && read tmux_session && tmux attach -t ${tmux_session:-d} || tmux new -s ${tmux_session:-d}"
 
 
 
