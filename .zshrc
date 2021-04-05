@@ -15,7 +15,6 @@ KEYTIMEOUT=1
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="spaceship"
-
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-vim-mode)
 
 #SPACESHIP
@@ -31,9 +30,9 @@ SPACESHIP_USER_SHOW="true"
 bindkey -r "^K"
 bindkey -r "^J"
 
+alias ls=colorls
 alias lc=colorls — tree — light
 alias v="nvim"
-alias zshr="source ~/.zshrc"
 alias n="node"
 alias cl="clear"
 alias s="sudo"

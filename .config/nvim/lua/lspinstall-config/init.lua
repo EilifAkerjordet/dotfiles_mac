@@ -47,9 +47,6 @@ local function setup_servers()
     if server == "lua" then
       config.settings = lua_settings
     end
-		-- if server == "tailwindcss" then
-    --   config.filetypes = {"javascript", "javascriptreact", "typescript", "typescriptreact"};
-    -- end
 
     require'lspconfig'[server].setup(config)
   end
