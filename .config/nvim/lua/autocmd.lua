@@ -21,10 +21,6 @@ local function define_augroups(definitions) -- {{{1
 end
 
 define_augroups({
-  qs_colors = {
-    {'ColorScheme', '*', "highlight QuickScopePrimary guifg='#afff5f' gui=underline ctermfg=155 cterm=underline"},
-    {'ColorScheme', '*', "highlight QuickScopeSecondary guifg='#5fffff' gui=underline ctermfg=81 cterm=underline"},
-  },
 	-- packer_auto_update = {
   --   { 'BufWritePost', 'plugins-setup.lua', 'PackerCompile' },
 	-- }
