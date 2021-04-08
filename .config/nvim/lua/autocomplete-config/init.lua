@@ -22,9 +22,3 @@ function _G.c_k()
 end
 vim.api.nvim_set_keymap('i', '<C-j>', 'v:lua.c_j()', {expr = true, noremap = true})
 vim.api.nvim_set_keymap('i', '<C-k>', 'v:lua.c_k()', {expr = true, noremap = true})
-
---- Use <CR> for completion only when menu is available
-vim.g.completion_confirm_key = ""
-vim.cmd([[
-  inoremap <expr> <cr>    pumvisible() ? "\<Plug>(completion_confirm_completion)" : "\<cr>"
-]])

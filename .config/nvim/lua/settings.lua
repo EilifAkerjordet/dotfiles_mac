@@ -1,4 +1,5 @@
 vim.cmd('set shortmess+=c') -- Don't pass messages to |ins-completion-menu|.
+vim.cmd('set nocompatible')
 vim.o.hidden = true -- Required to keep multiple buffers open multiple buffers
 vim.wo.wrap = false -- Display long lines as just one line
 vim.cmd('syntax on')
@@ -17,9 +18,9 @@ vim.cmd('set softtabstop=2')
 vim.cmd('set shiftwidth=2')
 vim.o.laststatus = 0
 vim.bo.expandtab = true -- Converts tabs to spaces
-vim.bo.smartindent = true -- Makes indenting smart
-vim.bo.autoindent = true
 vim.wo.number = true
+-- vim.bo.smartindent = true -- Makes indenting smart
+-- vim.bo.autoindent = true
 vim.wo.relativenumber = true
 vim.wo.cursorline = true
 vim.o.showmode = false

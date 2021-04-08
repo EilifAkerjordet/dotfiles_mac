@@ -1,0 +1,1 @@
+apr 04 20:43:30 host=smtp.mail.yahoo.com tls=on auth=on user=eilifakerjordet@yahoo.com from=eilifakerjordet@yahoo.com recipients=eiliferninja@gmail.com mailsize=581 smtpstatus=250 smtpmsg='250 OK , completed' exitcode=EX_OK

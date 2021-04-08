@@ -1,6 +1,7 @@
--- vim.o.background='dark'
+vim.o.background='dark'
 vim.g.meterial_style='oceanic'
 vim.cmd('colorscheme vim-material')
+
 -- Enable transparent BG
 vim.cmd([[
 hi Normal guibg=NONE ctermbg=NONE

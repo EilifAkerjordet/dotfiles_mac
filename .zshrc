@@ -47,4 +47,4 @@ export EDITOR=nvim
 # export TERMINAL=/usr/local/opt/a
 # export BROWSER=/usr/local/opt/bra
 export VISUAL=nvim
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
