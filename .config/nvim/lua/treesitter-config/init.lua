@@ -3,7 +3,7 @@ require'nvim-treesitter.configs'.setup {
   highlight = {
     enable = true,
   },
-  indent = {enable = {"javascriptreact"}},
+  indent = { enable = true },
 	autotag = { enable = true },
 	context_commentstring = {
 		enable = true,

@@ -13,12 +13,20 @@ local lua_settings = {
     workspace = {
       -- Make the server aware of Neovim runtime files
       library = {
-        [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+       [vim.fn.expand('$VIMRUNTIME/lua')] = true,
         [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
       },
     },
   }
 }
+
+local function make_config ()
+	local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
+	return {
+		capabilities = capabilities,
+	}
+end
 
 -- lsp-install
 local function setup_servers()
@@ -28,7 +36,7 @@ local function setup_servers()
   local servers = require'lspinstall'.installed_servers()
 
   for _, server in pairs(servers) do
-    local config = { on_attach = require'completion'.on_attach }
+    local config = make_config()
 
     -- language specific config
     if server == "lua" then

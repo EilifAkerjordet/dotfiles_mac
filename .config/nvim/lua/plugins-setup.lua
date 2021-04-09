@@ -33,7 +33,7 @@ return require('packer').startup(function(use)
 
 	-- Snippets --
   use 'dsznajder/vscode-es7-javascript-react-snippets'
-  use 'nvim-lua/completion-nvim'
+	use 'hrsh7th/nvim-compe'
   use 'hrsh7th/vim-vsnip-integ'
   use 'hrsh7th/vim-vsnip'
   use 'mattn/emmet-vim'

@@ -7,7 +7,8 @@ vim.api.nvim_set_keymap("n", "/", "<cmd>lua require('telescope.builtin').current
 
 vim.api.nvim_set_keymap("n", "<Leader>gs", "<cmd>lua require('telescope.builtin').git_status()<CR>", opts)
 vim.api.nvim_set_keymap("n", "<Leader>gb", "<cmd>lua require('telescope.builtin').git_branches()<CR>", opts)
--- vim.api.nvim_set_keymap("n", "<Leader>gc", "<cmd>lua require('telescope.builtin').git_commits()<CR>", opts)
+vim.api.nvim_set_keymap("n", "<Leader>vc", "<cmd>lua require('telescope.builtin').git_commits()<CR>", opts)
+-- vim.api.nvim_set_keymap("n", "<Leader>aa", "<cmd>lua require('telescope.builtin').file_browser()<CR>", opts)
 
 -- Global remapping
 ------------------------------

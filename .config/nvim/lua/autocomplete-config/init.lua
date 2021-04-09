@@ -1,14 +1,31 @@
-vim.g.completion_matching_strategy_list = { 'exact', 'substring', 'fuzzy' }
--- vim.g.completion_sorting = "alphabet"
-vim.g.completion_enable_snippet = 'vim-vsnip'
+require'compe'.setup {
+    enabled = true,
+    autocomplete = true,
+    debug = false,
+    min_length = 1,
+    preselect = 'enable',
+    throttle_time = 80,
+    source_timeout = 200,
+    incomplete_delay = 400,
+    max_abbr_width = 100,
+    max_kind_width = 100,
+    max_menu_width = 100,
+    documentation = true,
 
-vim.g.completion_auto_change_source = 1
-vim.g.completion_chain_complete_list = {
-    {complete_items = {'lsp'}},
-    {complete_items = {'snippet'}},
-    {mode = '<c-p>'},
-    {mode= '<c-n>'}
-	}
+    source = {
+        path = {kind = "  "},
+        buffer = {kind = "  "},
+        calc = {kind = "  "},
+        vsnip = {kind = "  "},
+        nvim_lsp = {kind = "  "},
+        nvim_lua = {kind = "  "},
+        spell = {kind = "  "},
+        tags = false,
+        treesitter = {kind = "  "},
+        emoji = {kind = " ﲃ ", filetypes={"markdown", "text"}}
+        -- for emoji press : (idk if that in compe tho)
+    }
+}
 
 --- Map <C-j> and <C-k> to cycle through autocomplete options
 local function t(str)
