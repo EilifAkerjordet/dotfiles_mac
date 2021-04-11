@@ -22,7 +22,7 @@ require'compe'.setup {
         spell = {kind = "  "},
         tags = false,
         treesitter = {kind = "  "},
-        emoji = {kind = " ﲃ ", filetypes={"markdown", "text"}}
+        emoji = {kind = " ﲃ "},
         -- for emoji press : (idk if that in compe tho)
     }
 }

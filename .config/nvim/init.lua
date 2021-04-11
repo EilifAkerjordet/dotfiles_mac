@@ -1,30 +1,14 @@
---- General stuff
-require('plugins-setup')
-require('settings')
-require('colorscheme')
-require('keybindings')
-require('autocmd')
+local utils = require('utils')
 
---- Plugin configs
-require('colorizer-config')
-require('lspinstall-config')
-require('lspsaga-config')
-require('telescope-config')
-require('treesitter-config')
-require('autocomplete-config')
-require('ALE-config')
-require('rnvimr-config')
-require('bracey-config')
-require('quickscope-config')
-require('comment-config')
-require('firenvim-config')
-require('vimtex-config')
-require('vimux-config')
-require('gitfugative-config')
-require('emmet-config')
-require('lspkind-config')
-require('startify-config')
-require('autopairs-config')
-require('lualine-config')
-require('indentline-config')
-require('hop-config')
+-- Scan lua directory and require files.
+-- Files that needs to be imported first are marked with @ prefix in filename
+local ignore = { 'utils.lua' }
+local modules = utils.scandir("~/.config/nvim/lua", ignore)
+
+for _, module in ipairs(modules) do
+	local module_name = module:gsub('.lua', '')
+	require(module_name)
+end
+
+-- @TODO:
+-- Hot reload config while editing files
