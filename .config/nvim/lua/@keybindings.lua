@@ -4,9 +4,8 @@ vim.api.nvim_set_keymap("n", ",", "<NOP>", { noremap = true, silent = true })
 vim.g.mapleader = " "
 vim.g.maplocalleader = ","
 
---- Source init.lua (not working)
-vim.api.nvim_set_keymap('n', '<Leader>sv', 'v:lua.source_config()', { expr = true })
-
+-- Reload nvim config
+vim.api.nvim_set_keymap('n', '<Leader>r', '<cmd>lua require("utils").reload_config()<CR>', { noremap = true })
 --- Save, quit, savequit
 vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-w>', ':wq<CR>', { noremap = true })

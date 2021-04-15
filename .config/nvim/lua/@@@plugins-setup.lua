@@ -1,10 +1,10 @@
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 
 if fn.empty(fn.glob(install_path)) > 0 then
-  execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
+  execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
   execute 'packadd packer.nvim'
 end
 
@@ -18,12 +18,11 @@ return require('packer').startup(function(use)
   use 'onsails/lspkind-nvim'
   use 'glepnir/lspsaga.nvim'
 
-	-- Syntax and formatting --
-  use {'lukas-reineke/indent-blankline.nvim', branch = 'lua'}
+  -- Syntax and formatting --
+  use { 'lukas-reineke/indent-blankline.nvim', branch = 'lua' }
   use 'AndrewRadev/splitjoin.vim'
-  use {'jalvesaq/Nvim-R', branch = 'stable'}
-  use {'prettier/vim-prettier', run = 'yarn install' }
-  use 'w0rp/ale'
+  use { 'jalvesaq/Nvim-R', branch = 'stable' }
+  use { 'prettier/vim-prettier', run = 'yarn install' }
   use 'lgeorget/maude.vim'
   use 'windwp/nvim-ts-autotag'
 
@@ -31,28 +30,29 @@ return require('packer').startup(function(use)
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use 'terrortylor/nvim-comment'
 
-	-- Snippets --
+  -- Snippets --
   use 'dsznajder/vscode-es7-javascript-react-snippets'
-	use 'hrsh7th/nvim-compe'
+  use 'hrsh7th/nvim-compe'
   use 'hrsh7th/vim-vsnip-integ'
   use 'hrsh7th/vim-vsnip'
   use 'mattn/emmet-vim'
 
-	-- Latex --
+  -- Latex --
   use 'lervag/vimtex'
   use 'Konfekt/FastFold'
   use 'matze/vim-tex-fold'
 
-	-- Color and FLAIR --
+  -- Color and FLAIR --
   use 'hzchirs/vim-material'
-	use 'hoob3rt/lualine.nvim'
+  use 'hoob3rt/lualine.nvim'
   use 'norcalli/nvim-colorizer.lua'
   use 'kyazdani42/nvim-web-devicons'
-	use 'ryanoasis/vim-devicons'
+  use 'ryanoasis/vim-devicons'
   use 'mhinz/vim-startify'
-  use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
-	-- File navigation --
+  -- File navigation --
+  use 'akinsho/nvim-bufferline.lua'
   use 'kevinhwang91/rnvimr'
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-lua/popup.nvim' -- Telescope dep
@@ -60,26 +60,20 @@ return require('packer').startup(function(use)
   use 'nvim-telescope/telescope-github.nvim' -- Telescope extension
   use 'nvim-telescope/telescope-fzy-native.nvim' -- Telescope extenstion
 
-	-- Motion --
+  -- Motion --
   use 'unblevable/quick-scope'
   use 'phaazon/hop.nvim'
   use 'christoomey/vim-tmux-navigator'
-	use 'yuttie/comfortable-motion.vim'
+  use 'yuttie/comfortable-motion.vim'
 
-	-- General config --
+  -- General config --
   use 'windwp/nvim-autopairs'
   use 'jiangmiao/auto-pairs' -- only for space completion
   use 'tpope/vim-surround'
   use 'tpope/vim-sensible'
   use 'airblade/vim-rooter'
 
-	-- Other --
-  use {
-    'glacambre/firenvim',
-     run = function()
-       vim.fn['firenvim#install'](1)
-     end
-    }
+  -- Other --
   use 'benmills/vimux'
   use 'turbio/bracey.vim'
   use 'tpope/vim-fugitive'
