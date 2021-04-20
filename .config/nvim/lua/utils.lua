@@ -14,8 +14,13 @@ function utils.define_augroups(definitions)
   end
 end
 
-local function has_value(tab, val)
+function utils.has_value(tab, val)
   for _, value in ipairs(tab) do if value == val then return true end end
+  return false
+end
+
+function utils.has_key(tab, val)
+  for key, _ in ipairs(tab) do if key == val then return true end end
   return false
 end
 
@@ -53,7 +58,7 @@ function utils.scandir(dirname, ignore)
 
     -- If ignore array is passed, disregard file if in ignore.
     if not ignore then table.insert(results, file) end
-    if ignore and not has_value(ignore, file) then table.insert(results, file) end
+    if ignore and not utils.has_value(ignore, file) then table.insert(results, file) end
 
     from = delim_to + 1
     delim_from, delim_to = string.find(file_string, "\n", from)

@@ -22,7 +22,6 @@ return require('packer').startup(function(use)
   use { 'lukas-reineke/indent-blankline.nvim', branch = 'lua' }
   use 'AndrewRadev/splitjoin.vim'
   use { 'jalvesaq/Nvim-R', branch = 'stable' }
-  use { 'prettier/vim-prettier', run = 'yarn install' }
   use 'lgeorget/maude.vim'
   use 'windwp/nvim-ts-autotag'
 
@@ -52,7 +51,8 @@ return require('packer').startup(function(use)
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
   -- File navigation --
-  use 'akinsho/nvim-bufferline.lua'
+  use 'ThePrimeagen/harpoon'
+  -- use 'akinsho/nvim-bufferline.lua'
   use 'kevinhwang91/rnvimr'
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-lua/popup.nvim' -- Telescope dep
@@ -68,13 +68,16 @@ return require('packer').startup(function(use)
 
   -- General config --
   use 'windwp/nvim-autopairs'
-  use 'jiangmiao/auto-pairs' -- only for space completion
   use 'tpope/vim-surround'
   use 'tpope/vim-sensible'
   use 'airblade/vim-rooter'
 
+  -- Git --
+  use 'tpope/vim-fugitive'
+  use 'ThePrimeagen/git-worktree.nvim'
+
   -- Other --
   use 'benmills/vimux'
   use 'turbio/bracey.vim'
-  use 'tpope/vim-fugitive'
+  use 'junegunn/goyo.vim'
 end)

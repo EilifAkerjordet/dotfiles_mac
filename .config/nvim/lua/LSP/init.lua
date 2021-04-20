@@ -7,7 +7,8 @@ local function on_attach(client, bufnr)
     vim.api.nvim_buf_set_keymap(bufnr, ...)
   end
 
-  if client.name == 'typescript' then client.resolved_capabilities.document_formatting = false end
+  -- Prefer efm lint options over default for language server
+  if utils.has_value(efm_settings.filetypes, client.name) then client.resolved_capabilities.document_formatting = false end
 
   -- Set some keybinds conditional on server capabilities
   local opts = { noremap = true, silent = true }
@@ -17,10 +18,29 @@ local function on_attach(client, bufnr)
   end
 end
 
-local function make_config()
+local function make_config(server)
+  if server == 'efm' then
+    efm_settings.on_attach = on_attach
+    return efm_settings
+  end
+
   local capabilities = vim.lsp.protocol.make_client_capabilities()
   capabilities.textDocument.completion.completionItem.snippetSupport = true
-  return { capabilities = capabilities, on_attach = on_attach }
+
+  local config = { capabilities = capabilities, on_attach = on_attach }
+
+  if server == "lua" then config.settings = lua_settings end
+
+  -- Prefer efm lint options over default for language server
+  if utils.has_value(efm_settings.filetypes, server) then
+    if config.settings then
+      config.settings.documentFormatting = false
+    else
+      config.settings = { documentFormatting = false }
+    end
+  end
+
+  return config
 end
 
 -- lsp-install
@@ -30,18 +50,7 @@ local function setup_servers()
   -- get all installed servers
   local servers = require'lspinstall'.installed_servers()
   for _, server in pairs(servers) do
-    local config = make_config()
-
-    -- language specific config
-    if server == "lua" then config.settings = lua_settings end
-
-    if server == "typescript" then config.settings = { documentFormatting = false } end
-
-    if server == 'efm' then
-      config = efm_settings
-      config.on_attach = on_attach
-    end
-
+    local config = make_config(server)
     require'lspconfig'[server].setup(config)
   end
 end

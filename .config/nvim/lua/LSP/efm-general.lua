@@ -8,7 +8,7 @@ local python_arguments = {
 
 -- lua
 local lua_arguments = {
-  formatCommand = 'lua-format -i ' .. '--no-keep-simple-function-one-line ' .. '--column-limit=120 ' .. '--tab-width=2 ' ..
+  formatCommand = 'lua-format -i ' .. '--no-keep-simple-function-one-line ' .. '--column-limit=140 ' .. '--tab-width=2 ' ..
       '--indent-width=2 ' .. '--spaces-inside-table-braces',
   formatStdin = true
 }
@@ -22,7 +22,7 @@ local sh_arguments = {
 }
 
 -- tsserver/web javascript react, vue, json, html, css, yaml
-local prettier = { formatCommand = "prettier --stdin-filepath ${INPUT}", formatStdin = true }
+local prettier = { formatCommand = "prettier --tab-width 2 --stdin-filepath ${INPUT}", formatStdin = true }
 -- You can look for project scope Prettier and Eslint with e.g. vim.fn.glob("node_modules/.bin/prettier") etc. If it is not found revert to global Prettier where needed.
 -- local prettier = {formatCommand = "./node_modules/.bin/prettier --stdin-filepath ${INPUT}", formatStdin = true}
 
@@ -35,28 +35,29 @@ local eslint = {
   formatStdin = true
 }
 
+local languages = {
+  python = { python_arguments },
+  lua = { lua_arguments },
+  sh = { sh_arguments },
+  html = { prettier },
+  css = { prettier },
+  json = { prettier },
+  yaml = { prettier },
+  php = { prettier },
+  javascriptreact = { prettier, eslint },
+  javascript = { prettier, eslint },
+  typescript = { prettier, eslint },
+  typescriptreact = { prettier, eslint }
+}
+
+-- Works well in conjnction with rooter vim.
+local function get_current_workdir()
+  return vim.fn.getcwd()
+end
+
 return {
+  root_dir = get_current_workdir,
   init_options = { documentFormatting = true, codeAction = false },
-  root_dir = function()
-    return vim.fn.getcwd()
-  end,
-  filetypes = {
-    "lua", "python", "typescript", "typescriptreact", "javascriptreact", "javascript", "sh", "html", "css", "json",
-    "yaml", "markdown"
-  },
-  settings = {
-    languages = {
-      python = { python_arguments },
-      lua = { lua_arguments },
-      sh = { sh_arguments },
-      html = { prettier },
-      css = { prettier },
-      json = { prettier },
-      yaml = { prettier },
-      javascriptreact = { prettier, eslint },
-      javascript = { prettier, eslint },
-      typescript = { prettier, eslint },
-      typescriptreact = { prettier, eslint }
-    }
-  }
+  filetypes = vim.tbl_keys(languages),
+  settings = { languages = languages }
 }
