@@ -89,7 +89,7 @@
  cmd - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
  alt - b : /Applications/Brave\ Browser.app/Contents/MacOS/Brave\ Browser
  alt - s : /Applications/Spotify.app/Contents/MacOS/Spotify
- alt - m : /Applications/Messenger.app/Contents/MacOS/Messenger
+ alt - m : /Applications/Ferdi.app/Contents/MacOS/Ferdi
  alt - n : alacritty -e neomutt
 
 # focus window

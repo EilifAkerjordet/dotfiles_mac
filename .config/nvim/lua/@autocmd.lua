@@ -9,8 +9,11 @@ utils.define_augroups({
     { 'ColorScheme', '*', 'hi Normal guibg=NONE ctermbg=NONE' }, { 'ColorScheme', '*', 'hi LineNr guibg=NONE ctermbg=NONE' },
     { 'ColorScheme', '*', 'hi SignColumn guibg=NONE ctermbg=NONE' }, { 'ColorScheme', '*', 'hi EndOfBuffer guibg=NONE ctermbg=NONE' }
   },
-  _md_break_work = {
-    { 'FileType', 'markdown', 'set wrap' }, { 'FileType', 'markdown', 'set linebreak' }, { 'FileType', 'markdown', 'set nolist' }
+  _pencil = {
+    { 'FileType', 'markdown', 'setlocal complete' }, { 'FileType', 'markdown', 'setlocal spell' }, { 'FileType', 'markdown', 'SoftPencil' },
+    { 'FileType', 'text', 'SoftPencil' }
+    -- { 'BufEnter', 'markdown', 'colorscheme pencil' }, { 'BufEnter', 'text', 'colorscheme pencil' }
+
   },
   _goyo_enter = { { 'User', 'GoyoEnter', 'set cursorline!' } }
 })

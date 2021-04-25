@@ -1,14 +1,8 @@
-vim.o.background = 'dark'
-vim.g.meterial_style = 'oceanic'
-vim.cmd('colorscheme vim-material')
+vim.g.material_style = 'deep ocean'
 
--- Replaced by autocommand
+vim.g.material_flat_ui = 1
+vim.g.material_italic_comments = 1
+vim.g.material_italic_keywords = 1
+vim.g.material_italic_functions = 1
 
--- Enable transparent BG
--- vim.cmd([[
--- 	hi Normal guibg=NONE ctermbg=NONE
--- 	hi LineNr guibg=NONE ctermbg=NONE
--- 	hi SignColumn guibg=NONE ctermbg=NONE
--- 	hi EndOfBuffer guibg=NONE ctermbg=NONE
--- ]])
-
+require('colorbuddy').colorscheme('material')

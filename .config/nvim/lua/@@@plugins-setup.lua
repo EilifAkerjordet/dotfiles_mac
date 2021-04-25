@@ -42,7 +42,10 @@ return require('packer').startup(function(use)
   use 'matze/vim-tex-fold'
 
   -- Color and FLAIR --
-  use 'hzchirs/vim-material'
+  -- use 'hzchirs/vim-material'
+  use 'tjdevries/colorbuddy.nvim'
+  use 'marko-cerovac/material.nvim'
+
   use 'hoob3rt/lualine.nvim'
   use 'norcalli/nvim-colorizer.lua'
   use 'kyazdani42/nvim-web-devicons'
@@ -76,8 +79,13 @@ return require('packer').startup(function(use)
   use 'tpope/vim-fugitive'
   use 'ThePrimeagen/git-worktree.nvim'
 
+  -- Markdown --
+  use 'junegunn/goyo.vim'
+  use 'preservim/vim-pencil'
+  use 'preservim/vim-colors-pencil'
+
   -- Other --
   use 'benmills/vimux'
   use 'turbio/bracey.vim'
-  use 'junegunn/goyo.vim'
+  use 'ThePrimeagen/vim-be-good'
 end)
