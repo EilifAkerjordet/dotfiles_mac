@@ -67,16 +67,10 @@ function utils.scandir(dirname, ignore)
 end
 
 -- @TODO figure this out
-utils.reload_config = function(opts)
-  opts = opts or {}
-  local dir = opts.path or ''
-  local list = {}
-  local p = io.popen('rg --files --hidden ' .. dir)
-  for file in p:lines() do table.insert(list, file) end
-  local nvim_conf = io.popen('rg --files ' .. os.getenv("HOME") .. '/.config/nvim')
-  for file in nvim_conf:lines() do table.insert(list, file) end
-  print(vim.inspect(list))
-  return list
+utils.reload_config = function()
+  utils.reload_module("config", true)
+  require("config")
+  print('Reloaded!')
 end
 
 return utils

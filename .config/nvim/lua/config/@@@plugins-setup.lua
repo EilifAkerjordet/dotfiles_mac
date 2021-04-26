@@ -21,7 +21,6 @@ return require('packer').startup(function(use)
   -- Syntax and formatting --
   use { 'lukas-reineke/indent-blankline.nvim', branch = 'lua' }
   use 'AndrewRadev/splitjoin.vim'
-  use { 'jalvesaq/Nvim-R', branch = 'stable' }
   use 'lgeorget/maude.vim'
   use 'windwp/nvim-ts-autotag'
 
@@ -42,7 +41,6 @@ return require('packer').startup(function(use)
   use 'matze/vim-tex-fold'
 
   -- Color and FLAIR --
-  -- use 'hzchirs/vim-material'
   use 'tjdevries/colorbuddy.nvim'
   use 'marko-cerovac/material.nvim'
 
@@ -55,7 +53,6 @@ return require('packer').startup(function(use)
 
   -- File navigation --
   use 'ThePrimeagen/harpoon'
-  -- use 'akinsho/nvim-bufferline.lua'
   use 'kevinhwang91/rnvimr'
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-lua/popup.nvim' -- Telescope dep

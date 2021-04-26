@@ -1,4 +1,4 @@
-local utils = require('utils')
+local utils = require('config.utils')
 
 utils.define_augroups({
   _qs_colors = {

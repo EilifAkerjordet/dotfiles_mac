@@ -1,6 +1,6 @@
-local efm_settings = require('LSP.efm-general')
-local lua_settings = require('LSP.lua-settings')
-local utils = require('utils')
+local efm_settings = require('config.LSP.efm-general')
+local lua_settings = require('config.LSP.lua-settings')
+local utils = require('config.utils')
 
 local function on_attach(client, bufnr)
   local function buf_set_keymap(...)
