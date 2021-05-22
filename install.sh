@@ -1,13 +1,5 @@
 #!/bin/sh
 
-# Homebrew and dotfiles
-# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-brew install git
-echo ".dotfiles.git" >> .gitignore
-git clone --bare https://www.github.com/username/repo.git $HOME/.dotfiles.git
-/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME checkout
-/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME config --local status.showUntrackedFiles no
-
 # For managing permissions in accessibility
 brew install tccutil
 
