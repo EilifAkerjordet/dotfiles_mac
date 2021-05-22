@@ -12,6 +12,8 @@ brew install --cask alacritty
 brew install --cask karabiner-elements
 brew install --cask zathura
 brew install --cask ferdi
+brew install --cask istat-menus
+brew install --cask docker
 
 # Alfred
 brew install --cask alfred
@@ -37,6 +39,7 @@ brew install --cask font-sauce-code-nerd-font
 
 # Other
 brew install node
+brew install docker-compose
 brew install yarn
 brew install python3
 brew install lua
