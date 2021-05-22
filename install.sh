@@ -62,7 +62,7 @@ brew install --cask font-sauce-code-pro-nerd-font
 echo "Installing colorls..."
 sudo gem install colorls
 
-# Other
+# Other command line tools
 echo "Installing other command line tools..."
 brew install node
 brew install docker-compose
