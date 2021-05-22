@@ -1,11 +1,7 @@
-g My personal dotfiles for Mac
+# My personal dotfiles for Mac
 
-The script assumes that git and homebrew are both installed.  
-
-  * Homebrew: `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
-  * Now you can install git through homebrew. `brew install git`
-
-Now, to clone the dotfiles properly into your home folder, do:
+Now, to clone the dotfiles properly into your home folder, do:  
+(The install script does this automatically)  
   * `echo ".dotfiles.git" >> .gitignore`
   * `git clone --bare https://www.github.com/EilifAkerjordet/dotfiles_mac.git $HOME/.dotfiles.git`
   * `/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME checkout`

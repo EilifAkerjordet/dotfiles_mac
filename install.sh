@@ -1,10 +1,11 @@
 #!/bin/sh
 
+# Installing homebrew and git
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install git
+
 # For managing permissions in accessibility
 brew install tccutil
-
-# For oh my zsh permissions
-compaudit | xargs chmod g-w,o-w
 
 # Gui applications
 brew install --cask spotify
@@ -22,17 +23,24 @@ sudo tccutil --insert com.runningwithcrayons.Alfred
 sudo tccutil --enable com.runningwithcrayons.Alfred
 
 # Oh-my-zsh
-mv .zshrc .zshrc_backup
+## For oh my zsh permissions
+compaudit | xargs chmod g-w,o-w
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-rm .zshrc
-mv .zshrc_backup .zshrc
 git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
 ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme" 
 
 ## Plugins oh my zsh
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-git clone https://github.com/softmoth/zsh-vim-mode.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-vim-mode
+git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
+git clone https://github.com/softmoth/zsh-vim-mode.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-vim-mode"
+
+# Cloning dotfiles into home directory
+echo ".dotfiles.git" >> .gitignore
+rm .zshrc
+git clone --bare https://www.github.com/EilifAkerjordet/dotfiles_mac.git "$HOME/.dotfiles.git"
+/usr/bin/git --git-dir="$HOME/.dotfiles.git/" --work-tree="$HOME" checkout
+/usr/bin/git --git-dir="$HOME/.dotfiles.git/" --work-tree="$HOME" config --local status.showUntrackedFiles no
+
 
 # Tmux
 brew install tmux
@@ -42,6 +50,7 @@ git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack
 brew tap homebrew/cask-fonts
 brew install --cask font-sauce-code-pro-nerd-font
 
+# For colorful ls command (alias lc)
 sudo gem install colorls
 
 # Other
