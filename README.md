@@ -7,7 +7,7 @@ The script assumes that git and homebrew are both installed.
 
 Now, to clone the dotfiles properly into your home folder, do:
   * `echo ".dotfiles.git" >> .gitignore`
-  * `git clone --bare https://github.com/EilifAkerjordet/dotfiles_mac.git
+  * `git clone --bare https://www.github.com/EilifAkerjordet/dotfiles_mac.git $HOME/.dotfiles.git`
   * `/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME checkout`
   * `/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME config --local status.showUntrackedFiles no`
 
