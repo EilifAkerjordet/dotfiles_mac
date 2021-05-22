@@ -1,11 +1,19 @@
 #!/bin/sh
 
+# Homebrew and dotfiles
+# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install git
+echo ".dotfiles.git" >> .gitignore
+git clone --bare https://www.github.com/username/repo.git $HOME/.dotfiles.git
+/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME checkout
+/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME config --local status.showUntrackedFiles no
+
 # For managing permissions in accessibility
 brew install tccutil
-xcode-select --install
 
 # Gui applications
 brew install --cask spotify
+brew install --cask brave-browser
 brew install --cask karabiner
 brew install --cask cursorcerer
 brew install --cask alacritty
@@ -51,11 +59,6 @@ brew install ripgrep
 pip3 install ranger-fm
 pip3 install pynvim
 
-# Neovim
-brew install neovim --fetch-HEAD
-git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-nvim -u ~/.config/nvim/init.lua +PackerInstall
-
 # Yabai
 brew install koekeishiya/formulae/yabai
 sudo tccutil --insert /usr/local/Cellar/yabai/3.3.8/bin/yabai
@@ -70,6 +73,12 @@ brew install koekeishiya/formulae/skhd
 sudo tccutil --insert /usr/local/Cellar/skhd/0.3.5/bin/skhd
 sudo tccutil --enable /usr/local/Cellar/skhd/0.3.5/bin/skhd
 brew services start skhd
+
+# Neovim
+brew install neovim --fetch-HEAD
+git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+nvim -u ~/.config/nvim/init.lua +PackerInstall
+
 
 # @TODO
 # AUto LSPINSTALL
