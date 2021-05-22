@@ -1,6 +1,6 @@
 # My personal dotfiles for Mac
 
-For Yabai and Skhd to work properly, make sure to disable SIP first. For Hackintoshes using Clover, you will need to edit the `config.plist`.
+For Yabai and Skhd to work properly, make sure to disable SIP first. For Hackintoshes using Clover, you will need to edit the `config.plist`.  
 Change:  
 `<key>CsrActiveConfig</key>`  
 `<string>XXXX</string>`
