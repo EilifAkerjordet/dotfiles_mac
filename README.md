@@ -22,6 +22,5 @@ To:
 For proper Macs, you have to restart your mac into recovery mode (hold cmd + r on boot). Then launch the terminal from the utilities tab, and run `csrutil disable`
 
 Now the install script should work. Run:
-  * `chmod +x ~/dotfiles_utils/installer.sh`
-  * `sh ~/dotfiles_utils/installer.sh`
+  * `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/EilifAkerjordet/dotfiles_mac/HEAD/dotfiles_utils/installer.sh)"`
 
