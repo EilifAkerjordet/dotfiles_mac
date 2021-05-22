@@ -1,6 +1,6 @@
-require('lualine').setup {
+require('lualine').setup({
   options = {
-    theme = 'material',
+    theme = 'tokyonight',
     section_separators = { '', '' },
     component_separators = { '', '' },
     icons_enabled = true,
@@ -23,4 +23,4 @@ require('lualine').setup {
     lualine_z = {}
   },
   extensions = { 'fzf' }
-}
+})

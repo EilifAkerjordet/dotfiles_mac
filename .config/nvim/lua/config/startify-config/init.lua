@@ -1,10 +1,10 @@
 vim.g.startify_custom_header = {
-'   ██╗███╗  ██╗██╗████████╗    ██╗     ██╗   ██╗ █████╗ ',
-'   ██║████╗ ██║██║╚══██╔══╝    ██║     ██║   ██║██╔══██╗',
-'   ██║██╔██╗██║██║   ██║       ██║     ██║   ██║███████║',
-'   ██║██║╚████║██║   ██║       ██║     ██║   ██║██╔══██║',
-'   ██║██║ ╚███║██║   ██║   ██╗ ███████╗╚██████╔╝██║  ██║',
-'   ╚═╝╚═╝  ╚══╝╚═╝   ╚═╝   ╚═╝ ╚══════╝ ╚═════╝ ╚═╝ ╚═╝'
+  '   ██╗███╗  ██╗██╗████████╗    ██╗     ██╗   ██╗ █████╗ ',
+  '   ██║████╗ ██║██║╚══██╔══╝    ██║     ██║   ██║██╔══██╗',
+  '   ██║██╔██╗██║██║   ██║       ██║     ██║   ██║███████║',
+  '   ██║██║╚████║██║   ██║       ██║     ██║   ██║██╔══██║',
+  '   ██║██║ ╚███║██║   ██║   ██╗ ███████╗╚██████╔╝██║  ██║',
+  '   ╚═╝╚═╝  ╚══╝╚═╝   ╚═╝   ╚═╝ ╚══════╝ ╚═════╝ ╚═╝ ╚═╝'
 }
 
 vim.g.webdevicons_enable_startify = 1
@@ -19,12 +19,12 @@ vim.g.startify_session_persistence = 1
 vim.api.nvim_set_keymap('n', '<Leader>h', ':Startify<CR>', {})
 
 vim.api.nvim_exec(
-		'let startify_lists = [ { \'type\': \'files\',     \'header\': [\'   Files\'] }, { \'type\': \'sessions\',  \'header\': [\'   Sessions\'] },    { \'type\': \'bookmarks\', \'header\': [\'   Bookmarks\'] },                                                                   ]',
-		true)
+    'let startify_lists = [ { \'type\': \'files\',     \'header\': [\'   Files\'] }, { \'type\': \'sessions\',  \'header\': [\'   Sessions\'] },    { \'type\': \'bookmarks\', \'header\': [\'   Bookmarks\'] },                                                                   ]',
+    true)
 
 vim.api.nvim_exec(
-		'let startify_bookmarks = [ { \'c\': \'~/.config\' }, { \'a\': \'~/.config/alacritty/alacritty.yml\' }, { \'y\': \'~/.config/yabai/yabairc\' }, { \'s\': \'~/.config/skhd/skhdrc\' }, { \'v\': \'~/.config/nvim/init.lua\' }, { \'z\': \'~/.zshrc\' }, { \'t\': \'~/.tmux.conf\' } ]',
-		true)
+    'let startify_bookmarks = [ { \'c\': \'~/.config\' }, { \'a\': \'~/.config/alacritty/alacritty.yml\' }, { \'y\': \'~/.config/yabai/yabairc\' }, { \'s\': \'~/.config/skhd/skhdrc\' }, { \'v\': \'~/.config/nvim/init.lua\' }, { \'z\': \'~/.zshrc\' }, { \'t\': \'~/.tmux.conf\' } ]',
+    true)
 
 vim.cmd([[
 function! StartifyEntryFormat()

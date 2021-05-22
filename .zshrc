@@ -43,8 +43,8 @@ alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export EDITOR=nvim
+export EDITOR="/usr/local/opt/nvim/bin/nvim"
 # export TERMINAL=/usr/local/opt/a
 # export BROWSER=/usr/local/opt/bra
-export VISUAL=nvim
+export VISUAL="/usr/local/opt/nvim/bin/nvim"
 export PATH="/usr/local/sbin:$PATH"

@@ -21,10 +21,12 @@ local sh_arguments = {
   lintFormats = { '%f:%l:%c: %trror: %m', '%f:%l:%c: %tarning: %m', '%f:%l:%c: %tote: %m' }
 }
 
--- tsserver/web javascript react, vue, json, html, css, yaml
-local prettier = { formatCommand = "prettier --tab-width 2 --stdin-filepath ${INPUT}", formatStdin = true }
--- You can look for project scope Prettier and Eslint with e.g. vim.fn.glob("node_modules/.bin/prettier") etc. If it is not found revert to global Prettier where needed.
--- local prettier = {formatCommand = "./node_modules/.bin/prettier --stdin-filepath ${INPUT}", formatStdin = true}
+local function prettier()
+  local prettier_config = { formatCommand = "prettier --tab-width 2 --stdin-filepath ${INPUT}", formatStdin = true }
+  local local_prettier = vim.fn.glob("node_modules/.bin/prettier")
+  if local_prettier ~= '' then prettier_config.formatCommand = local_prettier .. " --stdin-filepath ${INPUT}" end
+  return prettier_config
+end
 
 local eslint = {
   lintCommand = "./node_modules/.bin/eslint -f unix --stdin --stdin-filename ${INPUT}",
@@ -39,15 +41,17 @@ local languages = {
   python = { python_arguments },
   lua = { lua_arguments },
   sh = { sh_arguments },
-  html = { prettier },
-  css = { prettier },
-  json = { prettier },
-  yaml = { prettier },
-  php = { prettier },
-  javascriptreact = { prettier, eslint },
-  javascript = { prettier, eslint },
-  typescript = { prettier, eslint },
-  typescriptreact = { prettier, eslint }
+  html = { prettier() },
+  css = { prettier() },
+  json = { prettier() },
+  yaml = { prettier() },
+  php = { prettier() },
+  javascriptreact = { prettier(), eslint },
+  javascript = { prettier(), eslint },
+  typescript = { prettier(), eslint },
+  typescriptreact = { prettier(), eslint },
+  vue = { prettier(), eslint },
+  svelte = { prettier(), eslint }
 }
 
 -- Works well in conjnction with rooter vim.

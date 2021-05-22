@@ -90,7 +90,6 @@
  alt - b : /Applications/Brave\ Browser.app/Contents/MacOS/Brave\ Browser
  alt - s : /Applications/Spotify.app/Contents/MacOS/Spotify
  alt - m : /Applications/Ferdi.app/Contents/MacOS/Ferdi
- alt - n : alacritty -e neomutt
 
 # focus window
  cmd - h : yabai -m window --focus west || yabai -m display --focus west

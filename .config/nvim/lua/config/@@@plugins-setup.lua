@@ -41,9 +41,8 @@ return require('packer').startup(function(use)
   use 'matze/vim-tex-fold'
 
   -- Color and FLAIR --
-  use 'tjdevries/colorbuddy.nvim'
+  use 'folke/tokyonight.nvim'
   use 'marko-cerovac/material.nvim'
-
   use 'hoob3rt/lualine.nvim'
   use 'norcalli/nvim-colorizer.lua'
   use 'kyazdani42/nvim-web-devicons'
@@ -54,6 +53,7 @@ return require('packer').startup(function(use)
   -- File navigation --
   use 'ThePrimeagen/harpoon'
   use 'kevinhwang91/rnvimr'
+
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-lua/popup.nvim' -- Telescope dep
   use 'nvim-lua/plenary.nvim' -- Telescope dep
@@ -75,6 +75,8 @@ return require('packer').startup(function(use)
   -- Git --
   use 'tpope/vim-fugitive'
   use 'ThePrimeagen/git-worktree.nvim'
+  use 'lewis6991/gitsigns.nvim'
+  use 'TimUntersberger/neogit'
 
   -- Markdown --
   use 'junegunn/goyo.vim'

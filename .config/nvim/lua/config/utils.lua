@@ -66,7 +66,8 @@ function utils.scandir(dirname, ignore)
   return results
 end
 
--- @TODO figure this out
+-- @TODO
+-- This kills lualine and makes all strings text italic
 utils.reload_config = function()
   utils.reload_module("config", true)
   require("config")

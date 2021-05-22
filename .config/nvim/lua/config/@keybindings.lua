@@ -8,6 +8,6 @@ vim.g.maplocalleader = ","
 vim.api.nvim_set_keymap('n', '<Leader>r', '<cmd>lua require("config.utils").reload_config()<CR>', { noremap = true })
 
 --- Save, quit, savequit
-vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-w>', ':wq<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-q>', ':q!<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-w>', ':wq<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-q>', ':q!<CR>', { noremap = true, silent = true })

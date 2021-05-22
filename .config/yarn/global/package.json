@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@vitejs/create-app": "^2.2.5",
+    "@vue/cli": "^4.5.12"
+  }
+}
