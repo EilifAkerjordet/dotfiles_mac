@@ -1,4 +1,4 @@
-# My personal dotfiles for Mac
+g My personal dotfiles for Mac
 
 The script assumes that git and homebrew are both installed.  
 
@@ -27,5 +27,5 @@ For proper Macs, you have to restart your mac into recovery mode (hold cmd + r o
 
 Now the install script should work. Run:
   * `chmod +x install.sh`
-  * `sudo sh install.sh`
+  * `sh install.sh`
 
