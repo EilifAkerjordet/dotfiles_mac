@@ -1,6 +1,13 @@
 local efm_settings = require('config.LSP.efm-general')
 local lua_settings = require('config.LSP.lua-settings')
+local lspinstall = require('lspinstall')
+
 local utils = require('config.utils')
+
+local default_servers = {
+  'python', 'svelte', 'vue', 'vim', 'typescript', 'efm', 'tailwindcss', 'html', 'css', 'json', 'yaml', 'php', 'dockerfile', 'lua', 'bash',
+  'latex'
+}
 
 local function on_attach(client, bufnr)
   local function buf_set_keymap(...)
@@ -43,18 +50,23 @@ local function make_config(server)
   return config
 end
 
+-- Install default servers
+local function install_default_servers()
+  local installed_servers = lspinstall.installed_servers()
+  for _, value in ipairs(default_servers) do if not utils.has_value(installed_servers, value) then lspinstall.install_server(value) end end
+end
+
 -- lsp-install
 local function setup_servers()
-  require'lspinstall'.setup()
-
-  -- get all installed servers
-  local servers = require'lspinstall'.installed_servers()
+  lspinstall.setup()
+  local servers = lspinstall.installed_servers()
   for _, server in pairs(servers) do
     local config = make_config(server)
     require'lspconfig'[server].setup(config)
   end
 end
 
+install_default_servers()
 setup_servers()
 
 -- Automatically reload after `:LspInstall <server>` so we don't have to restart neovim

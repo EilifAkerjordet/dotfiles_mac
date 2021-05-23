@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 
 # Installing homebrew and git
 echo "Installing homebrew and git..."
@@ -29,7 +29,6 @@ sudo tccutil --enable com.runningwithcrayons.Alfred
 echo "Installing Oh-my-zsh..."
 compaudit | xargs chmod g-w,o-w
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/EilifAkerjordet/dotfiles_mac/HEAD/dotfiles_utils/oh-my-zsh-installer.sh)"
-
 ## Plugins oh my zsh
 echo "Installing plugins for Oh-my-zsh"
 git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
@@ -57,13 +56,11 @@ echo "Installing main font..."
 brew tap homebrew/cask-fonts
 brew install --cask font-sauce-code-pro-nerd-font
 
-# For colorful ls command (alias lc)
-echo "Installing colorls..."
-sudo gem install colorls
-
 # Other command line tools
 echo "Installing other command line tools..."
+sudo gem install colorls # For colorful ls commans (lc alias)
 brew install node
+brew install php
 brew install docker-compose
 brew install yarn
 brew install python3
@@ -72,10 +69,30 @@ brew install luarocks
 brew install fzf
 brew install ripgrep
 
+# Code formatters
+echo "Installing code formatters..."
+npm install -g prettier
+npm install --global prettier @prettier/plugin-php
+luarocks install --server=https://luarocks.org/dev luaformatter
+
 # Neovim pip dependencies
 echo "Installing ranger and pynvim..."
 pip3 install ranger-fm
 pip3 install pynvim
+
+# Neovim
+echo "Installing Neovim..."
+brew install --HEAD neovim
+echo "Installing Neovim plugins..."
+## Running headless will install packer and plugins automatically
+nvim --headless +qa
+
+# SKHD
+echo "Installing SKHD..."
+brew install koekeishiya/formulae/skhd
+sudo tccutil --insert /usr/local/Cellar/skhd/0.3.5/bin/skhd
+sudo tccutil --enable /usr/local/Cellar/skhd/0.3.5/bin/skhd
+brew services start skhd
 
 # Yabai
 echo "Installing Yabai..."
@@ -87,20 +104,6 @@ sudo yabai --load-sa
 echo "$USER ALL = (root) NOPASSWD: /usr/local/bin/yabai --load-sa" | (sudo su -c 'EDITOR="tee" visudo -f /private/etc/sudoers.d/yabai')
 brew services start yabai
 
-# SKHD
-echo "Installing SKHD"
-brew install koekeishiya/formulae/skhd
-sudo tccutil --insert /usr/local/Cellar/skhd/0.3.5/bin/skhd
-sudo tccutil --enable /usr/local/Cellar/skhd/0.3.5/bin/skhd
-brew services start skhd
-
-# Neovim
-echo "Installing Neovim..."
-brew install --HEAD neovim
-git clone https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-echo "Installing Neovim plugins..."
-nvim --headless +PackerInstall +qa
-
 echo "Cleaning up a bit..."
 brew cleanup
 
@@ -108,5 +111,4 @@ echo "Shutting down computer. Remember to restart it... :)"
 sudo shutdown -r now
 
 # @TODO
-# AUto LSP Install all language servers
-# Continue script after oh my zsh install
+# Install language servers in headless mode (nvim)

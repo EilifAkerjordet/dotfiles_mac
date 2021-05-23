@@ -1,16 +1,11 @@
-local execute = vim.api.nvim_command
-local fn = vim.fn
-
-local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-
-if fn.empty(fn.glob(install_path)) > 0 then
-  execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
-  execute 'packadd packer.nvim'
-end
-
 return require('packer').startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
+
+  -- A lot of plugins depend on these
+  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+  use 'nvim-lua/popup.nvim' -- Telescope dep
+  use 'nvim-lua/plenary.nvim' -- Telescope dep
 
   -- LSP --
   use 'neovim/nvim-lspconfig'
@@ -21,7 +16,6 @@ return require('packer').startup(function(use)
   -- Syntax and formatting --
   use { 'lukas-reineke/indent-blankline.nvim', branch = 'lua' }
   use 'AndrewRadev/splitjoin.vim'
-  use 'lgeorget/maude.vim'
   use 'windwp/nvim-ts-autotag'
 
   -- Commenting --
@@ -48,15 +42,12 @@ return require('packer').startup(function(use)
   use 'kyazdani42/nvim-web-devicons'
   use 'ryanoasis/vim-devicons'
   use 'mhinz/vim-startify'
-  use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
   -- File navigation --
   use 'ThePrimeagen/harpoon'
   use 'kevinhwang91/rnvimr'
 
   use 'nvim-telescope/telescope.nvim'
-  use 'nvim-lua/popup.nvim' -- Telescope dep
-  use 'nvim-lua/plenary.nvim' -- Telescope dep
   use 'nvim-telescope/telescope-github.nvim' -- Telescope extension
   use 'nvim-telescope/telescope-fzy-native.nvim' -- Telescope extenstion
 
