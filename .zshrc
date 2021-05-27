@@ -39,6 +39,7 @@ alias s="sudo"
 alias r="ranger"
 alias labelimage="python3 ~/labelImg/labelImg.py"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
+alias sail='./vendor/bin/sail'
 
 source $ZSH/oh-my-zsh.sh
 

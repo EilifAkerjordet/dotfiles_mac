@@ -61,6 +61,7 @@ echo "Installing other command line tools..."
 sudo gem install colorls # For colorful ls commans (lc alias)
 brew install node
 brew install php
+brew install composer
 brew install docker-compose
 brew install yarn
 brew install python3

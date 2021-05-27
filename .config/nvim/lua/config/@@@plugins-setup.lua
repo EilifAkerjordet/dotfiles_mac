@@ -23,6 +23,7 @@ return require('packer').startup(function(use)
   use 'terrortylor/nvim-comment'
 
   -- Snippets --
+  use 'onecentlin/laravel5-snippets-vscode'
   use 'dsznajder/vscode-es7-javascript-react-snippets'
   use 'hrsh7th/nvim-compe'
   use 'hrsh7th/vim-vsnip-integ'

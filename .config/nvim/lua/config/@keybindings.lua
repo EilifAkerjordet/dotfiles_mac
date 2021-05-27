@@ -11,3 +11,6 @@ vim.api.nvim_set_keymap('n', '<Leader>r', '<cmd>lua require("config.utils").relo
 vim.api.nvim_set_keymap('n', '<C-s>', ':w<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-w>', ':wq<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<C-q>', ':q!<CR>', { noremap = true, silent = true })
+
+--- Easier -> for php
+vim.api.nvim_set_keymap('i', '<C-o>', '->', { noremap = true, silent = true })
