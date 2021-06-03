@@ -15,7 +15,7 @@ brew install --cask brave-browser
 brew install --cask cursorcerer
 brew install --cask alacritty
 brew install --cask karabiner-elements
-brew install --cask ferdi
+brew install --cask franz
 brew install --cask istat-menus
 brew install --cask docker
 
@@ -24,18 +24,6 @@ echo "Installing Alfred..."
 brew install --cask alfred
 sudo tccutil --insert com.runningwithcrayons.Alfred
 sudo tccutil --enable com.runningwithcrayons.Alfred
-
-# Oh-my-zsh
-echo "Installing Oh-my-zsh..."
-compaudit | xargs chmod g-w,o-w
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/EilifAkerjordet/dotfiles_mac/HEAD/dotfiles_utils/oh-my-zsh-installer.sh)"
-## Plugins oh my zsh
-echo "Installing plugins for Oh-my-zsh"
-git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
-ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme" 
-git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
-git clone https://github.com/softmoth/zsh-vim-mode.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-vim-mode"
 
 # Cloning dotfiles into home directory
 echo "Cloning dotfiles..."
@@ -104,6 +92,18 @@ sudo yabai --install-sa
 sudo yabai --load-sa
 echo "$USER ALL = (root) NOPASSWD: /usr/local/bin/yabai --load-sa" | (sudo su -c 'EDITOR="tee" visudo -f /private/etc/sudoers.d/yabai')
 brew services start yabai
+
+# Oh-my-zsh
+echo "Installing Oh-my-zsh..."
+compaudit | xargs chmod g-w,o-w
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/EilifAkerjordet/dotfiles_mac/HEAD/dotfiles_utils/oh-my-zsh-installer.sh)"
+## Plugins oh my zsh
+echo "Installing plugins for Oh-my-zsh"
+git clone https://github.com/denysdovhan/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt" --depth=1
+ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme" 
+git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
+git clone https://github.com/softmoth/zsh-vim-mode.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-vim-mode"
 
 echo "Cleaning up a bit..."
 brew cleanup
