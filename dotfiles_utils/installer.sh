@@ -25,15 +25,6 @@ brew install --cask alfred
 sudo tccutil --insert com.runningwithcrayons.Alfred
 sudo tccutil --enable com.runningwithcrayons.Alfred
 
-# Cloning dotfiles into home directory
-echo "Cloning dotfiles..."
-echo ".dotfiles.git" >> .gitignore
-rm .zshrc
-git clone --bare https://www.github.com/EilifAkerjordet/dotfiles_mac.git "$HOME/.dotfiles.git"
-/usr/bin/git --git-dir="$HOME/.dotfiles.git/" --work-tree="$HOME" checkout
-/usr/bin/git --git-dir="$HOME/.dotfiles.git/" --work-tree="$HOME" config --local status.showUntrackedFiles no
-
-
 # Tmux
 echo "Installing Tmux..."
 brew install tmux
@@ -107,6 +98,14 @@ ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/the
 git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting"
 git clone https://github.com/softmoth/zsh-vim-mode.git "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-vim-mode"
+
+# Cloning dotfiles into home directory
+echo "Cloning dotfiles..."
+echo ".dotfiles.git" >> .gitignore
+rm .zshrc
+git clone --bare https://www.github.com/EilifAkerjordet/dotfiles_mac.git "$HOME/.dotfiles.git"
+/usr/bin/git --git-dir="$HOME/.dotfiles.git/" --work-tree="$HOME" checkout
+/usr/bin/git --git-dir="$HOME/.dotfiles.git/" --work-tree="$HOME" config --local status.showUntrackedFiles no
 
 echo "Cleaning up a bit..."
 brew cleanup

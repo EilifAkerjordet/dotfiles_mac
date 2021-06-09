@@ -22,7 +22,10 @@ local sh_arguments = {
 }
 
 local function prettier()
-  local prettier_config = { formatCommand = "prettier --tab-width 2 --stdin-filepath ${INPUT}", formatStdin = true }
+  local prettier_config = {
+    formatCommand = "prettier --tab-width 4 --no-semi --single-quote --print-width 140 --stdin-filepath ${INPUT}",
+    formatStdin = true
+  }
   local local_prettier = vim.fn.glob("node_modules/.bin/prettier")
   if local_prettier ~= '' then prettier_config.formatCommand = local_prettier .. " --stdin-filepath ${INPUT}" end
   return prettier_config
