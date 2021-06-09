@@ -15,7 +15,7 @@ vim.o.cmdheight = 1
 vim.o.splitbelow = true
 vim.o.termguicolors = true
 vim.o.splitright = true
-vim.o.t_Co = "256"
+-- vim.o.t_Co = "256" -> This causes neovim to crash
 vim.o.conceallevel = 0
 
 vim.o.backup = false

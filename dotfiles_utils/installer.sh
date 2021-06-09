@@ -57,6 +57,7 @@ brew install lua
 brew install luarocks
 brew install fzf
 brew install ripgrep
+brew install go
 
 # Code formatters
 echo "Installing code formatters..."
@@ -69,13 +70,6 @@ echo "Installing ranger and pynvim..."
 pip3 install ranger-fm
 pip3 install pynvim
 
-# Neovim
-echo "Installing Neovim..."
-brew install --HEAD neovim
-echo "Installing Neovim plugins..."
-## Running headless will install packer and plugins automatically
-nvim --headless +qa
-
 # SKHD
 echo "Installing SKHD..."
 brew install koekeishiya/formulae/skhd
@@ -85,6 +79,7 @@ brew services start skhd
 
 # Yabai
 echo "Installing Yabai..."
+brew install jq
 brew install koekeishiya/formulae/yabai
 sudo tccutil --insert /usr/local/Cellar/yabai/3.3.8/bin/yabai
 sudo tccutil --enable /usr/local/Cellar/yabai/3.3.8/bin/yabai
@@ -92,6 +87,14 @@ sudo yabai --install-sa
 sudo yabai --load-sa
 echo "$USER ALL = (root) NOPASSWD: /usr/local/bin/yabai --load-sa" | (sudo su -c 'EDITOR="tee" visudo -f /private/etc/sudoers.d/yabai')
 brew services start yabai
+
+# Neovim
+echo "Installing Neovim..."
+brew tap jason0x43/homebrew-neovim-nightly
+brew install neovim-nightly
+echo "Installing Neovim plugins..."
+## Running headless will install packer and plugins automatically
+nvim --headless +qa
 
 # Oh-my-zsh
 echo "Installing Oh-my-zsh..."
