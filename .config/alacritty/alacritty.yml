@@ -1,94 +1,94 @@
 env:
-  TERM: xterm-256color
+    TERM: xterm-256color
 
 window:
-  padding:
-    x: 5
-    y: 5
+    padding:
+        x: 5
+        y: 5
 
-  decorations: none
+    decorations: none
 
-  title: Alacritty
+    title: Alacritty
 
-  class:
-    instance: Alacritty
+    class:
+        instance: Alacritty
 
-    general: Alacritty
+        general: Alacritty
 
 scrolling:
-  history: 5000
+    history: 5000
 
 font:
-  normal:
-    family: SauceCodePro Nerd Font
+    normal:
+        family: SauceCodePro Nerd Font
 
-    style: Regular
+        style: Regular
 
-  bold:
-    family: SauceCodePro Nerd Font
+    bold:
+        family: SauceCodePro Nerd Font
 
-    style: Bold
+        style: Bold
 
-  italic:
-    family: SauceCodePro Nerd Font
+    italic:
+        family: SauceCodePro Nerd Font
 
-    style: Italic
+        style: Italic
 
-  bold_italic:
-    family: SauceCodePro Nerd Font
+    bold_italic:
+        family: SauceCodePro Nerd Font
 
-    style: Bold Italic
+        style: Bold Italic
 
-  size: 11
+    size: 11
 
-  offset:
-    x: 1
-    y: 1
+    offset:
+        x: 1
+        y: 1
 
 colors:
-  primary:
-    background: "0x0f111a"
-    foreground: "0xa6accd"
+    primary:
+        background: '0x0f111a'
+        foreground: '0xa6accd'
 
-  selection:
-    text: "0x292d3e"
-    background: "0xbbc5ff"
+    selection:
+        text: '0x292d3e'
+        background: '0xbbc5ff'
 
-  normal:
-    black: "0x292d3e"
-    red: "0xf07178"
-    green: "0xc3e88d"
-    yellow: "0xffcb6b"
-    blue: "0x82aaff"
-    magenta: "0xc792ea"
-    cyan: "0x89ddff"
-    white: "0xd0d0d0"
+    normal:
+        black: '0x292d3e'
+        red: '0xf07178'
+        green: '0xc3e88d'
+        yellow: '0xffcb6b'
+        blue: '0x82aaff'
+        magenta: '0xc792ea'
+        cyan: '0x89ddff'
+        white: '0xd0d0d0'
 
-  bright:
-    black: "0x434758"
-    red: "0xff8b92"
-    green: "0xddffa7"
-    yellow: "0xffe585"
-    blue: "0x9cc4ff"
-    magenta: "0xe1acff"
-    cyan: "0xa3f7ff"
-    white: "0xffffff"
+    bright:
+        black: '0x434758'
+        red: '0xff8b92'
+        green: '0xddffa7'
+        yellow: '0xffe585'
+        blue: '0x9cc4ff'
+        magenta: '0xe1acff'
+        cyan: '0xa3f7ff'
+        white: '0xffffff'
 
 background_opacity: 0.90
 
 shell:
-  program: /bin/zsh
-  args:
-    - -l
-    - -c
-    - "tmux ls && read tmux_session && tmux attach -t ${tmux_session:-d} || tmux new -s ${tmux_session:-d}"
+    program: /bin/zsh
+    args:
+        - -l
+        - -c
+        - 'tmux ls && read tmux_session && tmux attach -t ${tmux_session:-d} || tmux new -s ${tmux_session:-d}'
 
 hide_when_typing: true
 
 key_bindings:
-  - { key: Key0, mods: Control, action: ResetFontSize }
-  - { key: Equals, mods: Control, action: IncreaseFontSize }
-  - { key: Plus, mods: Control, action: IncreaseFontSize }
-  - { key: Minus, mods: Control, action: DecreaseFontSize }
-  - { key: Key6, mods: Control, chars: "\x1e" }
-  - { key: Slash, mods: Control, chars: " cc" }
+    - { key: Key0, mods: Control, action: ResetFontSize }
+    - { key: Equals, mods: Control, action: IncreaseFontSize }
+    - { key: Plus, mods: Control, action: IncreaseFontSize }
+    - { key: Minus, mods: Control, action: DecreaseFontSize }
+    - { key: Key6, mods: Control, chars: "\x1e" }
+    - { key: Slash, mods: Control, chars: ' cc' }

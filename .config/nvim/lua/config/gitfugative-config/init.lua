@@ -1,6 +1,6 @@
 local opts = { noremap = true, silent = true }
 --- Keybindings
-vim.api.nvim_set_keymap('n', '<Leader>gs', ':G status<CR>', opts)
+vim.api.nvim_set_keymap('n', '<Leader>gs', ':G<CR>', opts)
 vim.api.nvim_set_keymap('n', '<Leader>gc', ':G commit<CR>', opts)
 vim.api.nvim_set_keymap('n', '<Leader>ga', ':G add .<CR>', opts)
 vim.api.nvim_set_keymap('n', '<Leader>g;', ':G pull<CR>', opts)

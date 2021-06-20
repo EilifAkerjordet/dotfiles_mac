@@ -11,7 +11,7 @@ return require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig'
   use 'kabouzeid/nvim-lspinstall'
   use 'onsails/lspkind-nvim'
-  use 'glepnir/lspsaga.nvim'
+  use { 'ray-x/navigator.lua', requires = { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' } }
 
   -- Syntax and formatting --
   use { 'lukas-reineke/indent-blankline.nvim', branch = 'lua' }

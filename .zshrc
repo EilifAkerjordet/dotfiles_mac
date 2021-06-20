@@ -40,6 +40,7 @@ alias r="ranger"
 alias labelimage="python3 ~/labelImg/labelImg.py"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
 alias sail='./vendor/bin/sail'
+alias gamer='sh $HOME/work/goodgameas/dev.sh'
 
 source $ZSH/oh-my-zsh.sh
 
