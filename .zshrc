@@ -5,6 +5,8 @@
 ZSH_DISABLE_COMPFIX="true"
 export ZSH=$HOME/.oh-my-zsh
 export CPPFLAGS="-I/usr/local/opt/openjdk/include"
+path+="$HOME/.composer/vendor/bin"
+export PATH
 
 PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 source $(dirname $(gem which colorls))/tab_complete.sh
@@ -30,19 +32,38 @@ SPACESHIP_USER_SHOW="true"
 bindkey -r "^K"
 bindkey -r "^J"
 
-alias ls=colorls
+alias ls=colorls — tree — light
 alias lc=colorls — tree — light
 alias v="nvim"
-alias n="node"
+alias no="node"
 alias cl="clear"
 alias s="sudo"
 alias r="ranger"
 alias labelimage="python3 ~/labelImg/labelImg.py"
 alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"
-alias sail='./vendor/bin/sail'
 alias gamer='sh $HOME/work/goodgameas/dev.sh'
 
+alias s='./vendor/bin/sail'
+alias sa='./vendor/bin/sail artisan'
+alias sad='./vendor/bin/sail artisan db'
+alias sat='./vendor/bin/sail artisan tinker'
+
+alias a='php artisan'
+alias ad='php artisan db'
+alias at='php artisan tinker'
+
+alias prisma='yarn prisma'
+alias dc='docker-compose'
+alias dmix='docker-compose run web mix'
+alias simulator='open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app'
+alias ngrok='$HOME/ngrok'
+alias lir="./work/personal/receipts/labelimg.sh"
+# alias python='python3'
+
 source $ZSH/oh-my-zsh.sh
+
+# Ssh connections
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export EDITOR="/usr/local/opt/nvim/bin/nvim"
@@ -50,3 +71,24 @@ export EDITOR="/usr/local/opt/nvim/bin/nvim"
 # export BROWSER=/usr/local/opt/bra
 export VISUAL="/usr/local/opt/nvim/bin/nvim"
 export PATH="/usr/local/sbin:$PATH"
+alias php7c="/usr/local/Cellar/php@7.4/7.4.29/bin/php /usr/local/bin/composer"
+alias php7="/usr/local/Cellar/php@7.4/7.4.29/bin/php"
+#
+alias php73c="/usr/local/Cellar/php@7.3/7.3.32/bin/php /usr/local/bin/composer"
+alias php73="/usr/local/Cellar/php@7.3/7.3.32/bin/php"
+#
+alias php8="/usr/local/Cellar/php@8.0/8.0.13/bin/php"
+alias php8c="/usr/local/Cellar/php@8.0/8.0.13/bin/php /usr/local/bin/composer"
+#
+alias php72c="/usr/local/Cellar/php@7.2/7.2.34_4/bin/php /usr/local/bin/composer"
+alias php72="/usr/local/Cellar/php@7.2/7.2.34_4/bin/php"
+#
+alias php53="$HOME/php-custom/bin/php -c $HOME/php-custom/lib/php.ini"
+
+alias phpunit="./vendor/bin/phpunit"
+alias testbench="./vendor/bin/testbench"
+alias tbt="./vendor/bin/testbench package:test"
+
+alias py="python3"
+
+alias beak="/Users/eilifakerjordet/work/goodgameas/development/beak"

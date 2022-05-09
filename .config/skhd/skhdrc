@@ -11,7 +11,7 @@
  cmd - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
  alt - b : /Applications/Brave\ Browser.app/Contents/MacOS/Brave\ Browser
  alt - s : /Applications/Spotify.app/Contents/MacOS/Spotify
- alt - m : /Applications/Ferdi.app/Contents/MacOS/Franz
+ alt - i : open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app
 
 # focus window
  cmd - h : yabai -m window --focus west || yabai -m display --focus west

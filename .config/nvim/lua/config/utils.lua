@@ -74,4 +74,43 @@ utils.reload_config = function()
   print('Reloaded!')
 end
 
+function utils.flattenOneLevel (e)
+    local result = {}
+			for _,v in pairs(e) do
+				for x,y in pairs(v) do
+					result[x] = y
+				end
+			end
+    return result
+end
+
+function utils.empty_not_empty_tbl_keys(tbl)
+	local empty = {}
+	local notEmpty = {}
+
+	for k, _ in pairs(tbl) do
+		if vim.tbl_isempty(tbl[k]) then
+			table.insert(empty, k)
+		else
+			table.insert(notEmpty, k)
+		end
+	end
+
+	return empty, notEmpty
+end
+
+function utils.merge_lists(a, b)
+	local result = {}
+
+	for _, v in pairs(a) do
+		table.insert(result, v)
+	end
+
+	for _, v in pairs(b) do
+		table.insert(result, v)
+	end
+
+	return result
+end
+
 return utils

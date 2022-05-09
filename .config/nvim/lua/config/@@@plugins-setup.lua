@@ -8,27 +8,39 @@ return require('packer').startup(function(use)
   use 'nvim-lua/plenary.nvim' -- Telescope dep
 
   -- LSP --
-  use 'neovim/nvim-lspconfig'
-  use 'kabouzeid/nvim-lspinstall'
-  use 'onsails/lspkind-nvim'
-  use { 'ray-x/navigator.lua', requires = { 'ray-x/guihua.lua', run = 'cd lua/fzy && make' } }
+	use 'neovim/nvim-lspconfig'
+	use 'williamboman/nvim-lsp-installer'
+	use {'ray-x/navigator.lua', requires = {'ray-x/guihua.lua', run = 'cd lua/fzy && make'}}
+	use 'ray-x/lsp_signature.nvim'
 
   -- Syntax and formatting --
-  use { 'lukas-reineke/indent-blankline.nvim', branch = 'lua' }
+  use { 'lukas-reineke/indent-blankline.nvim' }
   use 'AndrewRadev/splitjoin.vim'
   use 'windwp/nvim-ts-autotag'
+  use 'editorconfig/editorconfig-vim'
 
   -- Commenting --
   use 'JoosepAlviste/nvim-ts-context-commentstring'
-  use 'terrortylor/nvim-comment'
+	use 'numToStr/Comment.nvim'
 
   -- Snippets --
-  use 'onecentlin/laravel5-snippets-vscode'
-  use 'dsznajder/vscode-es7-javascript-react-snippets'
-  use 'hrsh7th/nvim-compe'
-  use 'hrsh7th/vim-vsnip-integ'
-  use 'hrsh7th/vim-vsnip'
+	use 'hrsh7th/cmp-nvim-lsp'
+	use 'hrsh7th/cmp-buffer'
+	use 'hrsh7th/cmp-path'
+	use 'hrsh7th/cmp-cmdline'
+	use 'hrsh7th/nvim-cmp'
+
+	use 'onsails/lspkind-nvim'
+
+	use 'hrsh7th/vim-vsnip-integ'
+	use 'hrsh7th/cmp-vsnip'
+	use 'hrsh7th/vim-vsnip'
+
   use 'mattn/emmet-vim'
+	use {'dsznajder/vscode-es7-javascript-react-snippets', run = 'yarn install --frozen-lockfile && yarn compile' }
+
+	-- Term --
+	use {"akinsho/toggleterm.nvim"}
 
   -- Latex --
   use 'lervag/vimtex'
@@ -48,9 +60,11 @@ return require('packer').startup(function(use)
   use 'ThePrimeagen/harpoon'
   use 'kevinhwang91/rnvimr'
 
+	use { "nvim-telescope/telescope-frecency.nvim", requires = {"tami5/sqlite.lua"} }
   use 'nvim-telescope/telescope.nvim'
   use 'nvim-telescope/telescope-github.nvim' -- Telescope extension
   use 'nvim-telescope/telescope-fzy-native.nvim' -- Telescope extenstion
+  use 'windwp/nvim-spectre'
 
   -- Motion --
   use 'unblevable/quick-scope'
@@ -62,7 +76,8 @@ return require('packer').startup(function(use)
   use 'windwp/nvim-autopairs'
   use 'tpope/vim-surround'
   use 'tpope/vim-sensible'
-  use 'airblade/vim-rooter'
+  -- use 'airblade/vim-rooter'
+  use "Pocco81/AutoSave.nvim"
 
   -- Git --
   use 'tpope/vim-fugitive'
@@ -72,8 +87,6 @@ return require('packer').startup(function(use)
 
   -- Markdown --
   use 'junegunn/goyo.vim'
-  use 'preservim/vim-pencil'
-  use 'preservim/vim-colors-pencil'
 
   -- Other --
   use 'benmills/vimux'

@@ -9,11 +9,6 @@ utils.define_augroups({
     { 'ColorScheme', '*', 'hi Normal guibg=NONE ctermbg=NONE' }, { 'ColorScheme', '*', 'hi LineNr guibg=NONE ctermbg=NONE' },
     { 'ColorScheme', '*', 'hi SignColumn guibg=NONE ctermbg=NONE' }, { 'ColorScheme', '*', 'hi EndOfBuffer guibg=NONE ctermbg=NONE' }
   },
-  _pencil = {
-    { 'FileType', 'markdown', 'setlocal complete' }, { 'FileType', 'markdown', 'setlocal spell' }, { 'FileType', 'markdown', 'SoftPencil' },
-    { 'FileType', 'text', 'SoftPencil' }
-    -- { 'BufEnter', 'markdown', 'colorscheme pencil' }, { 'BufEnter', 'text', 'colorscheme pencil' }
-
-  },
+  _svxMdSyntax = { { 'BufNewFile,BufRead', '*.svx', 'set syntax=markdown' } },
   _goyo_enter = { { 'User', 'GoyoEnter', 'set cursorline!' } }
 })

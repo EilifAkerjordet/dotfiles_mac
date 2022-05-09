@@ -3,9 +3,11 @@ vim.cmd('set nocompatible')
 vim.cmd('syntax on')
 vim.cmd('set fcs=eob:\\ ') -- Replace blankline tilde with ' ' (whitespace)
 
-vim.cmd('set shiftwidth=4')
-vim.cmd('set softtabstop=4')
-vim.cmd('set tabstop=4')
+vim.cmd('set shiftwidth=2')
+vim.cmd('set softtabstop=2')
+vim.cmd('set tabstop=2')
+
+vim.cmd('set noswapfile')
 
 vim.o.compatible = false
 vim.o.completeopt = "menuone,noinsert,noselect"

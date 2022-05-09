@@ -1,7 +1,7 @@
 local opts = { noremap = true, silent = true }
 --- Keybindings
 vim.api.nvim_set_keymap('n', '<Leader>gs', ':G<CR>', opts)
-vim.api.nvim_set_keymap('n', '<Leader>gc', ':G commit<CR>', opts)
+vim.api.nvim_set_keymap('n', '<Leader>gc', ':G commit -a<CR>', opts)
 vim.api.nvim_set_keymap('n', '<Leader>ga', ':G add .<CR>', opts)
 vim.api.nvim_set_keymap('n', '<Leader>g;', ':G pull<CR>', opts)
 vim.api.nvim_set_keymap('n', '<Leader>gp', ':G push<CR>', opts)

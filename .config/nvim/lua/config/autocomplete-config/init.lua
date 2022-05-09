@@ -1,41 +1,55 @@
-require'compe'.setup {
-    enabled = true,
-    autocomplete = true,
-    debug = false,
-    min_length = 1,
-    preselect = 'enable',
-    throttle_time = 80,
-    source_timeout = 200,
-    incomplete_delay = 400,
-    max_abbr_width = 100,
-    max_kind_width = 100,
-    max_menu_width = 100,
-    documentation = true,
+local lspkind = require 'lspkind'
+local cmp = require 'cmp'
 
-    source = {
-        path = {kind = "  "},
-        buffer = {kind = "  "},
-        calc = {kind = "  "},
-        vsnip = {kind = "  "},
-        nvim_lsp = {kind = "  "},
-        nvim_lua = {kind = "  "},
-        spell = {kind = "  "},
-        tags = false,
-        treesitter = {kind = "  "},
-        emoji = {kind = " ﲃ "},
-        -- for emoji press : (idk if that in compe tho)
-    }
-}
+cmp.setup({
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = 'symbol', -- show only symbol annotations
+      maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
 
---- Map <C-j> and <C-k> to cycle through autocomplete options
-local function t(str)
-   return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
-function _G.c_j()
-    return vim.fn.pumvisible() == 1 and t'<C-n>' or t'<C-j>'
-end
-function _G.c_k()
-    return vim.fn.pumvisible() == 1 and t'<C-p>' or t'<C-k>'
-end
-vim.api.nvim_set_keymap('i', '<C-j>', 'v:lua.c_j()', {expr = true, noremap = true})
-vim.api.nvim_set_keymap('i', '<C-k>', 'v:lua.c_k()', {expr = true, noremap = true})
+      -- The function below will be called before any actual modifications from lspkind
+      -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+      before = function(entry, vim_item)
+        return vim_item
+      end
+    })
+  },
+
+  snippet = {
+    expand = function(args)
+      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
+    end
+  },
+
+  mapping = cmp.mapping.preset.insert({
+    ['<C-b>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
+    ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+    ['<C-Space>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
+    ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
+    ['<C-e>'] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() }),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }) -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+  }),
+
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' }, { name = 'vsnip' } -- For vsnip users.
+  }, { { name = 'buffer' } })
+})
+
+-- Set configuration for specific filetype.
+cmp.setup.filetype('gitcommit', {
+  sources = cmp.config.sources({
+    { name = 'cmp_git' } -- You can specify the `cmp_git` source if you were installed it. 
+  }, { { name = 'buffer' } })
+})
+
+-- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline('/', { sources = { { name = 'buffer' } } })
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  sources = cmp.config.sources({ { name = 'path' } }, { { name = 'cmdline' } }),
+  mapping = cmp.mapping.preset.cmdline({})
+})
+
+vim.cmd("autocmd FileType guihua lua require('cmp').setup.buffer { enabled = false }")
+vim.cmd("autocmd FileType guihua_rust lua require('cmp').setup.buffer { enabled = false }")
