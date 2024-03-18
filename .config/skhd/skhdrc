@@ -1,17 +1,19 @@
 # Reload skhd
  cmd + alt - s : skhd --reload
 # Reload yabai
- cmd + alt - y : brew services restart yabai
+ cmd + alt - y : yabai --restart-service
 
 # Close window
- alt - q : $(yabai -m window $(yabai -m query --windows --window | jq -re ".id") --close)
- cmd - p : $(yabai -m window $(yabai -m query --windows --window | jq -re ".id") --close)
+ # alt - q : $(yabai -m window $(yabai -m query --windows --window | jq -re ".id") --close)
+ # cmd - p : $(yabai -m window $(yabai -m query --windows --window | jq -re ".id") --close)
 
 # Applications
  cmd - return : /Applications/Alacritty.app/Contents/MacOS/alacritty
- alt - b : /Applications/Brave\ Browser.app/Contents/MacOS/Brave\ Browser
- alt - s : /Applications/Spotify.app/Contents/MacOS/Spotify
- alt - i : open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app
+ alt - b : open /Applications/Arc.app
+ alt - s : open /Applications/Spotify.app
+ alt - t : open /Applications/Trello.app
+
+ alt - i : open /Applications/Xcode-beta.app/Contents/Developer/Applications/Simulator.app
 
 # focus window
  cmd - h : yabai -m window --focus west || yabai -m display --focus west
@@ -103,7 +105,7 @@ shift + ctrl - d : yabai -m window --move rel:20:0
 # alt - e : yabai -m window --toggle split
 
 # float / unfloat window and center on screen
- alt - t : yabai -m window --toggle float;\
+ cmd - t : yabai -m window --toggle float;\
            yabai -m window --grid 4:4:1:1:2:2
 
 # toggle sticky(+float), topmost, picture-in-picture

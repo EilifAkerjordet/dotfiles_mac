@@ -41,7 +41,7 @@ font:
 
         style: Bold Italic
 
-    size: 11
+    size: 16
 
     offset:
         x: 1
@@ -93,6 +93,11 @@ key_bindings:
     - { key: Key3, mods: Control, chars: '🀳' }
     - { key: Key4, mods: Control, chars: '🀴' }
     - { key: Key5, mods: Control, chars: '🀵' }
+
+    - { key: Key7, mods: Control, chars: '🀶' }
+    - { key: Key8, mods: Control, chars: '🀷' }
+    - { key: Key9, mods: Control, chars: '🀸' }
+    - { key: Key0, mods: Control, chars: '🀹' }
 
     - { key: Equals, mods: Control, action: IncreaseFontSize }
     - { key: Plus, mods: Control, action: IncreaseFontSize }
